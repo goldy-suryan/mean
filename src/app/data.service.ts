@@ -5,11 +5,15 @@ import { Http } from "@angular/http";
 
 export class DataService {
 
-    url: string = "/api/videos";
+    videosurl: string = "/api/videos";
+    videourl: string = "/api/video/:id"
     constructor(private http: Http) {}
 
-    getData() {
-        return this.http.get(this.url).map(res => res.json());
+    getVideos() {
+        return this.http.get(this.videosurl).map(res => res.json());
     }
 
+    getVideo() {
+        return this.http.get(this.videourl).map(res => res.json())
+    }
 }

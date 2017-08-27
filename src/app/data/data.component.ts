@@ -5,19 +5,23 @@ import { DataService } from "../data.service";
 
 @Component({
     selector: "app-data",
-    template: `<div *ngFor="let d of data">
+    template: `<div *ngFor="let video of videos">
         <ul>
-            <li>{{d.title}}, {{d.url}}</li>
+            <li>{{video.title}}, {{video.url}}</li>
+        </ul>
+        <ul>
+            <li>{{video.desciption}}</li>
         </ul>
     </div>`
 })
 
 export class DataComponent {
-    data: any;
+    videos: any;
+    video: any;
 
     constructor(private http: Http, private dataService: DataService) {}
 
     ngOnInit() {
-        this.dataService.getData().subscribe(data => this.data = data);
+        this.dataService.getVideos().subscribe(videos => this.videos = videos);
     }
 }

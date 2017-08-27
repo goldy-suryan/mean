@@ -7,6 +7,9 @@ let app = express();
 
 app.use(express.static(path.join(__dirname, "dist")));
 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 app.use("/api", api);
 
 app.get("*", (req, res) => {
