@@ -4,13 +4,11 @@ import { HttpModule } from "@angular/http";
 import { AppRoutingModule } from "./app.routing.module";
 
 import { AppComponent } from './app.component';
-import { DataComponent } from "./data/data.component";
 import { DataService } from "./data.service";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DataComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
