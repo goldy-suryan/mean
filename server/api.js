@@ -4,7 +4,7 @@ let Videos = require("./models/video");
 
 router.get("/videos", (req, res) => {
     Videos.find((err, videos) => {
-        console.log(err);
+        if(err) throw err;
         res.json(videos);
     })
 });
@@ -15,7 +15,7 @@ router.get("/videos/:id", (req, res) => {
     })
 });
 
-router.post("/video", (req, res) => {
+router.post("/newvideo", (req, res) => {
     let newVideo = new Videos();
     newVideo.title = req.body.title;
     newVideo.url = req.body.url;
